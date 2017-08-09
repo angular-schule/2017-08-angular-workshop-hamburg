@@ -3,6 +3,13 @@
   <img src="//ng-buch.de/avatar/{{book.rating}}" />
   </div>
 
-  <h2>{{ book.title }} <small>Stars {{ book.rating }}</small></h2>
+  <h2>
+    {{ book.title }}
+    <span class="badge">{{ pos + 1 }}</span>
+  </h2>
+  <p>
+    <span class="glyphicon glyphicon-star" *ngFor="let x of ratingArray(book.rating)"></span>
+    <span class="glyphicon glyphicon-star-empty" *ngFor="let x of ratingArray(5 - book.rating)"></span>
+  </p>
   <p>{{ book.description }}</p>
 </div>

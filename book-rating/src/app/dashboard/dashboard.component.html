@@ -1,3 +1,9 @@
-<br-book *ngFor="let b of books" [book]="b"></br-book>
+<br-book *ngFor="let b of books; index as i" [book]="b" [pos]="i"></br-book>
+
+<hr>
+
+<p class="footer">
+Anzahl Bücher: {{ books.length }}
+</p>
 
 

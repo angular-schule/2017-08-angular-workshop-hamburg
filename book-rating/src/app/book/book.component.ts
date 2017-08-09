@@ -10,9 +10,14 @@ import { Book } from '../shared/book';
 export class BookComponent implements OnInit {
 
   @Input() book: Book;
+  @Input() pos: number;
 
   get imgUrl() {
     return `//ng-buch.de/avatar/${this.book.rating}`;
+  }
+
+  ratingArray(rating: number) {
+    return new Array(rating);
   }
 
   constructor() { }

@@ -18,6 +18,12 @@ export class DashboardComponent implements OnInit {
       new Book('000', 'Angular', 'Zurück in die Zukunft', 5),
       new Book('111', 'AngularJS 1.x', 'Oldie but goldie', 3)
     ];
+
+    this.foo('Hello world');
+  }
+
+  foo(text: string) {
+    console.log(text);
   }
 
 }

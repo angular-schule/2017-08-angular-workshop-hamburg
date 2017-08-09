@@ -1,3 +1,12 @@
+ISBN: <input type="text" name="isbn" #isbnEl><br>
+Title: <input type="text" name="title" #titleEl><br>
+Description: <textarea type="text" name="description" #descriptionEl></textarea><br>
+
+<button (click)="add(isbn, title, description)">Add book</button>
+
+
+<hr>
+
 <br-book *ngFor="let b of books; index as i" [book]="b" [pos]="i"></br-book>
 
 <hr>

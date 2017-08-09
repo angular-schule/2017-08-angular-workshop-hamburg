@@ -11,6 +11,10 @@ export class BookComponent implements OnInit {
 
   @Input() book: Book;
 
+  get imgUrl() {
+    return `//ng-buch.de/avatar/${this.book.rating}`;
+  }
+
   constructor() { }
 
   ngOnInit() {

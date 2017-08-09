@@ -9,6 +9,8 @@ import { Book } from '../shared/book';
 })
 export class DashboardComponent implements OnInit {
 
+  imgUrl = 'https://ng-buch.de/avatar/12';
+
   books: Book[];
 
   ngOnInit() {

@@ -12,8 +12,6 @@ export class CreateBookReactiveComponent implements OnInit {
 
   form: FormGroup;
 
-  book = Book.empty();
-
   @Output() bookCreated = new EventEmitter<Book>();
 
   constructor(private fb: FormBuilder) { }
@@ -29,8 +27,10 @@ export class CreateBookReactiveComponent implements OnInit {
   }
 
   add() {
-    this.bookCreated.emit(this.book);
-    this.book = Book.empty();
+    const value = this.form.value;
+    const newBook = new Book(value.isbn, value.title, value.description);
+    this.bookCreated.emit(newBook);
+    this.form.reset();
   }
 
 }

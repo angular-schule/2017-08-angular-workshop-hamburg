@@ -1,3 +1,5 @@
+import { CreateBookComponent } from '../create-book/create-book.component';
+import { BookComponent } from '../book/book.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -10,7 +12,7 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ],
+      declarations: [ DashboardComponent, BookComponent, CreateBookComponent ],
       schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
@@ -30,4 +32,5 @@ describe('DashboardComponent', () => {
     const comps = fixture.debugElement.queryAll(By.css('br-book'));
     expect(comps.length).toEqual(component.books.length);
   });
+
 });

@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 import { Book } from '../shared/book';
 
@@ -9,9 +10,10 @@ import { Book } from '../shared/book';
 })
 export class CreateBookComponent implements OnInit {
 
-  @ViewChild('isbnEl') isbn: ElementRef;
-  @ViewChild('titleEl') title: ElementRef;
-  @ViewChild('descriptionEl') description: ElementRef;
+  // auch möglich: @ViewChild('bookForm') bookForm: NgForm;
+  @ViewChild(NgForm) bookForm: NgForm;
+
+  book = Book.empty();
 
   @Output() bookCreated = new EventEmitter<Book>();
 
@@ -21,17 +23,9 @@ export class CreateBookComponent implements OnInit {
   }
 
   add() {
-    const newBook = new Book(
-      this.isbn.nativeElement.value,
-      this.title.nativeElement.value,
-      this.description.nativeElement.value
-    );
-
-    this.bookCreated.emit(newBook);
-
-    this.isbn.nativeElement.value =
-      this.title.nativeElement.value =
-      this.description.nativeElement.value = '';
+    this.bookCreated.emit(this.book);
+    this.book = Book.empty();
+    this.bookForm.reset();
   }
 
 }

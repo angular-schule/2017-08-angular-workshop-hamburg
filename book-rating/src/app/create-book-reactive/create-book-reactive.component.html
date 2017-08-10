@@ -1,33 +1,27 @@
 <h3>Reactive Form</h3>
-<form #bookForm="ngForm" (ngSubmit)="add()">
+<form (ngSubmit)="add()" [formGroup]="form">
   <div class="form-group">
     <label for="isbn">ISBN</label>
-    <input class="form-control" name="isbn"
-    [(ngModel)]="book.isbn"
-    required minlength="3"
-    #isbn="ngModel" #isbnEl>
-    <div class="alert alert-danger" *ngIf="isbn.invalid && isbn.dirty">ISBN muss mindestens 3 Zeichen haben.</div>
+    <input class="form-control" formControlName="isbn">
+    <div class="alert alert-danger" *ngIf="form.get('isbn').invalid">ISBN muss mindestens 3 Zeichen haben.</div>
   </div>
   <div class="form-group">
     <label for="title">Title</label>
-    <input class="form-control" name="title" [(ngModel)]="book.title" required>
+    <input class="form-control" formControlName="title" required>
   </div>
   <div class="form-group">
     <label for="description">Description</label>
-    <textarea class="form-control" name="description" [(ngModel)]="book.description"></textarea>
+    <textarea class="form-control" formControlName="description"></textarea>
   </div>
   <div class="form-group">
    <button
     class="btn btn-danger"
     type="submit"
-    [disabled]="bookForm.invalid">Add book</button>
+    [disabled]="form.invalid">Add book</button>
   </div>
 </form>
 
-<pre>
-  {{ isbnEl.className }}
-</pre>
 
 <pre>
-{{ book | json }}
+{{ form.value | json }}
 </pre>

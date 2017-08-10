@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Book } from '../shared/book';
 
@@ -10,22 +10,27 @@ import { Book } from '../shared/book';
 })
 export class CreateBookReactiveComponent implements OnInit {
 
-  // auch möglich: @ViewChild('bookForm') bookForm: NgForm;
-  @ViewChild(NgForm) bookForm: NgForm;
+  form: FormGroup;
 
   book = Book.empty();
 
   @Output() bookCreated = new EventEmitter<Book>();
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.form = this.fb.group({
+      isbn: ['', [Validators.required, Validators.minLength(3)]],
+      title: ['Testbuch', [Validators.required]],
+      description: ['']
+    });
+
+    this.form.valueChanges.subscribe(v => console.log(v));
   }
 
   add() {
     this.bookCreated.emit(this.book);
     this.book = Book.empty();
-    this.bookForm.reset();
   }
 
 }

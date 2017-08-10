@@ -1,5 +1,3 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { BookComponent } from './book.component';
 import { Book } from '../shared/book';
 
@@ -7,15 +5,14 @@ describe('BookComponent', () => {
   it('should forward rateUp() to the Book entity', () => {
     const comp = new BookComponent();
 
-    let ratingWasCalled = false;
-
-    const book = {
-      rateUp: () => { ratingWasCalled = true; }
+    comp.book = {
+      rateUp: () => { }
     } as Book;
-    comp.book = book;
+
+    spyOn(comp.book, 'rateUp');
 
     comp.rateUp();
 
-    expect(ratingWasCalled).toBe(true);
+    expect(comp.book.rateUp).toHaveBeenCalled();
   });
 });

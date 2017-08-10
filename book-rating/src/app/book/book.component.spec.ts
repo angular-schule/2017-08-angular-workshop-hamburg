@@ -22,6 +22,7 @@ describe('BookComponent', () => {
     component = fixture.componentInstance;
 
     component.book = {
+      title: 'Testbuch',
       rating: 1,
       rateUp: () => { },
       rateDown: () => { }
@@ -46,5 +47,14 @@ describe('BookComponent', () => {
     spyOn(component, 'rateDown');
     rateDownBtn.click();
     expect(component.rateDown).toHaveBeenCalled();
+  });
+
+  it('should display the book title', () => {
+    const heading = fixture.debugElement.query(By.css('h2 span#title')).nativeElement;
+    expect(heading.textContent).toEqual('Testbuch');
+
+    component.book.title = 'Testbuch 2';
+    fixture.detectChanges();
+    expect(heading.textContent).toEqual('Testbuch 2');
   });
 });

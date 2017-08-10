@@ -42,4 +42,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
     // isbn.value = title.value = description.value = '';
   }
+
+  reorderBooks(book: Book) {
+    console.log('Rated book:', book);
+    this.books.sort((a, b) => b.rating - a.rating);
+  }
 }

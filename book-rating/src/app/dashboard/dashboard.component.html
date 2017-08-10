@@ -19,7 +19,11 @@
 
 <hr>
 
-<br-book *ngFor="let b of books; index as i" [book]="b" [pos]="i"></br-book>
+<br-book
+  *ngFor="let b of books; index as i"
+  [book]="b"
+  [pos]="i"
+  (rated)="reorderBooks($event)"></br-book>
 
 <hr>
 

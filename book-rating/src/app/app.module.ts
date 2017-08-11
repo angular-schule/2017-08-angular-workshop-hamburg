@@ -1,3 +1,4 @@
+import { AuthService } from './shared/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,7 +17,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [BookStoreService],
+  providers: [BookStoreService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

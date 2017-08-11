@@ -20,7 +20,10 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   constructor(private bs: BookStoreService) {}
 
   ngOnInit() {
-    this.bs.getAll().subscribe(books => this.books = books);
+    this.bs.getAll().subscribe(books => {
+      this.books = books;
+      this.reorderBooks();
+    });
   }
 
 
@@ -30,10 +33,10 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   addBook(book: Book) {
     this.books.push(book);
-    this.reorderBooks(book);
+    this.reorderBooks();
   }
 
-  reorderBooks(book: Book) {
+  reorderBooks() {
     this.books.sort((a, b) => b.rating - a.rating);
   }
 }

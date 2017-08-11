@@ -24,4 +24,8 @@ export class BookStoreService {
     return this.http.post(`${this.apiUrl}/book`, book);
   }
 
+  updateRating(isbn: string, rating: number) {
+    return this.http.post(`${this.apiUrl}/book/${isbn}/rate`, { rating: rating });
+  }
+
 }

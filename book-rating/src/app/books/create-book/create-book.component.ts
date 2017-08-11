@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { Book } from '../shared/book';
+import { Book } from '../../shared/book';
 
 @Component({
   selector: 'br-create-book',

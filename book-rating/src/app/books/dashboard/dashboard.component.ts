@@ -1,8 +1,8 @@
 import { Component, OnInit, AfterViewInit, ViewChildren, QueryList } from '@angular/core';
 
-import { BookStoreService } from '../shared/book-store.service';
+import { BookStoreService } from '../../shared/book-store.service';
 import { BookComponent } from '../book/book.component';
-import { Book } from '../shared/book';
+import { Book } from '../../shared/book';
 
 @Component({
   selector: 'br-dashboard',

@@ -3,8 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 
-import { BookStoreService } from '../shared/book-store.service';
-import { Book } from '../shared/book';
+import { BookStoreService } from '../../shared/book-store.service';
+import { Book } from '../../shared/book';
 
 @Component({
   selector: 'br-book-details',

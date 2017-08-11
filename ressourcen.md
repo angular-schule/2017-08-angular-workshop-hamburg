@@ -7,3 +7,5 @@
 * ngrev: https://github.com/mgechev/ngrev
 * ngworld: https://github.com/mgechev/ngworld / https://mgechev.github.io/ngworld/
 * Tests für HTTPClient: https://github.com/angular/angular/blob/18559897a0852dd8a8286cd209d8172f08bb604a/packages/common/http/test/client_spec.ts
+* RxMarbles: http://rxmarbles.com
+* Animations Demo: http://slides.yearofmoo.com/ng4-animations-preview/demo/

@@ -10,6 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { BookComponent } from './book/book.component';
 import { CreateBookComponent } from './create-book/create-book.component';
 import { CreateBookReactiveComponent } from './create-book-reactive/create-book-reactive.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CreateBookReactiveComponent } from './create-book-reactive/create-book-
     DashboardComponent,
     BookComponent,
     CreateBookComponent,
-    CreateBookReactiveComponent
+    CreateBookReactiveComponent,
+    BookDetailsComponent
   ],
   imports: [
     BrowserModule,

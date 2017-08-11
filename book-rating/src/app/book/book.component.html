@@ -16,4 +16,6 @@
   <button (click)="rateUp()" class="btn btn-default glyphicon glyphicon-thumbs-up rateUpBtn"></button>
   <button (click)="rateDown()" class="btn btn-default glyphicon glyphicon-thumbs-down rateDownBtn"></button>
 
+  <a [routerLink]="['/book', book.isbn]" class="btn btn-default">Details</a>
+
 </div>

@@ -1,3 +1,4 @@
+import { SharedModuleModule } from './shared-module/shared-module.module';
 import { TokenInceptorService } from './shared/token-inceptor.service';
 import { AuthService } from './shared/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,7 +17,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModuleModule
   ],
   providers: [
     BookStoreService,

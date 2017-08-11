@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { BookStoreService } from './shared/book-store.service';
 import { AppRoutingModule } from './app-routing.module';
-import { BooksModule } from './books/books.module';
 import { AppComponent } from './app.component';
 
 
@@ -15,8 +14,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    BooksModule
+    HttpClientModule
   ],
   providers: [BookStoreService],
   bootstrap: [AppComponent]

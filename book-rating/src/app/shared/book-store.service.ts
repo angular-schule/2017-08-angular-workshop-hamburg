@@ -9,7 +9,7 @@ import { BookResponse } from './book-response';
 @Injectable()
 export class BookStoreService {
 
-  apiUrl = 'https://api.angular.schule';
+  apiUrl = 'https://api.angular.schule/secure';
 
   constructor(private http: HttpClient) { }
 

@@ -1,4 +1,9 @@
+import { URLSearchParams } from '@angular/http';
 import { Injectable } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/map';
+
 
 declare var window: any;
 
@@ -12,6 +17,8 @@ export class AuthService {
     audience: 'https://api.angular.schule'
   };
 
+  constructor(private route: ActivatedRoute) { }
+
   authorize() {
     const url = `${this.settings.authServer}/authorize?` +
     'response_type=token&' +
@@ -22,6 +29,16 @@ export class AuthService {
     window.location = url;
   }
 
-  constructor() { }
+  handleAuthentication() {
+    this.route.fragment
+      .filter(e => !!e)
+      .map(fragment => new URLSearchParams(fragment).get('access_token'))
+      .subscribe(token => {
+        console.log('Token:', token);
+        localStorage.setItem('access_token', token);
+        window.location.hash = '';
+      });
+  }
+
 
 }

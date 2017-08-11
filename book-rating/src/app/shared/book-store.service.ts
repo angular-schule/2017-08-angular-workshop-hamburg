@@ -20,6 +20,10 @@ export class BookStoreService {
       );
   }
 
+  getSingle(isbn: string): Observable<Book> {
+    return this.http.get<BookResponse>(`${this.apiUrl}/book/${isbn}`);
+  }
+
   create(book: Book): Observable<any> {
     return this.http.post(`${this.apiUrl}/book`, book);
   }

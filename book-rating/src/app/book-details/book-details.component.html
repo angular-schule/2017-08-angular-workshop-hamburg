@@ -1,6 +1,7 @@
-<p>
-  book-details works!
-</p>
+<div *ngIf="book$ | async as book">
+  <h2>Details für {{ book.isbn }}</h2>
+  <strong>Titel:</strong> {{ book.title }}
+</div>
 
 <hr>
 <a routerLink="/dashboard" class="btn btn-default">Zurück zum Dashboard</a>

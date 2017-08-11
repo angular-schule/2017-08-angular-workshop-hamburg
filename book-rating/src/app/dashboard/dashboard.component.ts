@@ -1,7 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChildren, QueryList } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import 'rxjs/add/operator/map';
 
+import { BookStoreService } from '../shared/book-store.service';
 import { BookComponent } from '../book/book.component';
 import { Book } from '../shared/book';
 
@@ -18,14 +17,10 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   books: Book[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private bs: BookStoreService) {}
 
   ngOnInit() {
-    this.http.get('https://api.angular.schule/books')
-      .map((rawBooks: any[]) => rawBooks.map(
-        rawBook => new Book(rawBook.isbn, rawBook.title, rawBook.description, rawBook.rating))
-      )
-      .subscribe(books => this.books = books);
+    this.bs.getAll().subscribe(books => this.books = books);
   }
 
 

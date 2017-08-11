@@ -1,4 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChildren, QueryList } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import 'rxjs/add/operator/map';
 
 import { BookComponent } from '../book/book.component';
 import { Book } from '../shared/book';
@@ -14,13 +16,16 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   imgUrl = 'https://ng-buch.de/avatar/12';
 
-  books: Book[];
+  books: Book[] = [];
+
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.books = [
-      new Book('000', 'Angular', 'Zurück in die Zukunft', 5),
-      new Book('111', 'AngularJS 1.x', 'Oldie but goldie', 3)
-    ];
+    this.http.get('https://api.angular.schule/books')
+      .map((rawBooks: any[]) => rawBooks.map(
+        rawBook => new Book(rawBook.isbn, rawBook.title, rawBook.description, rawBook.rating))
+      )
+      .subscribe(books => this.books = books);
   }
 
 

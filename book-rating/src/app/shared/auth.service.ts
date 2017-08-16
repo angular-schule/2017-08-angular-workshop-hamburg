@@ -13,7 +13,7 @@ export class AuthService {
   private settings = {
     authServer: 'https://angular-schule.eu.auth0.com',
     clientId: 'myb1GOMpODqAaBnS51F9YWhzL13pSyfx',
-    redirectUri: 'http://localhost:4200',
+    redirectUri: 'https://angular-schule.github.io/2017-08-angular-workshop-hamburg/',
     audience: 'https://api.angular.schule'
   };
 
